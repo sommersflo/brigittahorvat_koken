@@ -1,0 +1,307 @@
+<koken:include file="inc/header.html" />
+
+
+
+
+<div id="content">
+
+	<!-- Load this template's source data (set) and limit for pagination -->
+	<koken:load>
+	
+	<section class="fg-fix fg2 push3 name">{{ album.title }}</section>
+
+		<!-- Add Facebook Open Graph and Twitter Cards metadata for nicer sharing -->
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:title" content="{{ album.title strip_html="true" }}" />
+			<meta property="og:description" content="{{ album.summary | album.description strip_html="true" }}" />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content="{{ album.url }}" />
+			<koken:covers><koken:shift>
+			<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+			<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+			<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+			</koken:shift></koken:covers>
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="gallery" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+				<koken:covers minimum="4" limit="4">
+					<koken:loop>
+						<meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
+					</koken:loop>
+				</koken:covers>
+			</koken:not>
+		</koken:head>		
+</koken:load>
+
+
+
+<section id='naviContent'>
+  <ul>
+   
+<!-- Overview -->
+   
+    <koken:load>
+    <li id='overview'>
+   
+    <koken:loop>	
+    
+    <div id="series">	
+    <!--<h1>{{ album.title }}</h1>-->
+    
+    	<koken:load source="album" filter:id="{{ album.id }}" limit="0">	  		
+    		<koken:has_category title="Film">  			       		  			            
+		  		<a href="">
+		  			<koken:loop> 
+		  			     <koken:img preset="medium" />
+		  			</koken:loop> 
+		  		</a>
+           <koken:else> 
+           		<koken:loop>
+		  			<a href="">
+		  			    <koken:img preset="medium" />
+		  			</a>
+		  		</koken:loop> 
+		  	</koken:has_category>			  			          	 
+    <div class="clearing"></div>
+    </koken:load>
+   
+    </div>   		
+    </koken:loop>   
+    </li>
+    </koken:load>
+     
+     
+<!-- Overview -->        
+      
+<!-- Campaigns -->
+ 
+      <koken:load>
+      	<li id='campaigns'>    
+      		<koken:loop>	
+      			<koken:has_category title="Campaign">    
+      				<div id="series">	
+      					<!--<h1>{{ album.title }}</h1> -->
+      						<koken:load source="album" filter:id="{{ album.id }}" limit="0">	   	
+      							<koken:loop>		
+      								<a href="">
+      									<koken:img preset="medium" />
+      								</a>			
+      							</koken:loop>
+      							<div id='campaignscategory' class='campaignscontent'></div>	   		
+      							<div class="clearing"></div>
+      						</koken:load>   
+      				</div> 
+      			<koken:else>      
+      			</koken:has_category>       		
+      		</koken:loop>       
+      	</li>  
+      </koken:load> 
+       
+<!-- Campaigns -->  
+
+<!-- Editorial -->
+ 
+      <koken:load>
+      	<li id='editorial'>    
+      		<koken:loop>	
+      			<koken:has_category title="Editorial">    
+      				<div id="series">	
+      					<!--<h1>{{ album.title }}</h1> -->
+      						<koken:load source="album" filter:id="{{ album.id }}" limit="0">	   	
+      							<koken:loop>		
+      								<a href="">
+      									<koken:img preset="medium" />
+      								</a>			
+      							</koken:loop>
+      							<div id='editorialcategory' class='editorialcontent'></div>	   		
+      							<div class="clearing"></div>
+      						</koken:load>   
+      				</div> 
+      			<koken:else>      
+      			</koken:has_category>       		
+      		</koken:loop>       
+      	</li>  
+      </koken:load> 
+       
+<!-- Editorial -->  
+
+<!-- Film -->
+ 
+      <koken:load>
+      	<li id='film'>    
+      		<koken:loop>	
+      			<koken:has_category title="Film">    
+      				<div id="series">	
+      					<!--<h1>{{ album.title }}</h1> -->
+      						<koken:load source="album" filter:id="{{ album.id }}" limit="0">	   	
+      							<a href="">
+		  			          	<koken:loop> 
+		  			          			<koken:img preset="medium" />
+		  			          	</koken:loop> 
+		  			          	</a>
+      							<div id='filmcategory' class='filmcontent'></div>	   		
+      							<div class="clearing"></div>
+      						</koken:load>   
+      				</div> 
+      			<koken:else>      
+      			</koken:has_category>       		
+      		</koken:loop>       
+      	</li>  
+      </koken:load> 
+       
+<!-- Film -->     
+       
+     
+<!-- About -->      
+    
+    <koken:load source="page">
+    <li id='about'> 
+    		<section class="fg-fix fg2 push3 name">{{page.title}}</section>
+    		<section class="fg-fix fg3 push3">{{ page.content }}</section>
+    </li>
+    </koken:load>
+       
+<!-- About -->          
+  
+    
+  </ul>
+</section>
+
+ 
+<!--- Detail Overview -->
+
+  <koken:load>
+	  <div id='detail' style="display:none;"> 
+		  <div id="floater">
+		  			<div id="child">
+		  		          <div id="gallery-overview" class="royalSlider rsMinW visibleNearby">	
+		  					  <koken:loop>
+		  			          	 <koken:load source="album" filter:id="{{ album.id }}" limit="0"> 
+		  			          	 <koken:has_category title="Film">  			       
+		  			          	
+		  			          <koken:loop limit="1">   
+		  			          	 <koken:img preset="xlarge" class="rsImg" data-rsvideo="{{ content.caption }}" />
+		  			          </koken:loop> 
+	  			          	 
+		  			          	 <koken:else>  
+		  			          	 <koken:loop>
+		  			          	 <koken:img preset="xlarge" class="rsImg" />
+		  			          	 </koken:loop>     
+		  			          	 </koken:has_category>			       
+		  			          	     
+		  			             </koken:load>   			          				
+		  		              </koken:loop>
+		  		          </div>
+		  	        </div>
+		  </div>
+	  </div>
+  </koken:load>
+  
+  
+    
+
+
+  
+  
+ <!--- Detail Overview -->
+ 
+ <!--- Detail Photoview Campaign -->
+ 
+   <koken:load>
+ 	  <div id='detail-campaign' style="display:none;"> 
+ 		  <div id="floater">
+ 		  			<div id="child">
+ 		  		          <div id="gallery-campaign" class="royalSlider rsMinW visibleNearby">	
+ 		  					  <koken:loop>
+ 		  			          	 <koken:load source="album" filter:id="{{ album.id }}" limit="0">
+ 		  			          	 	<koken:has_category title="Campaign">  			       
+	 		  			          	    <koken:loop>
+	 		 							  <koken:img preset="xlarge" class="rsImg" />
+	 		  			          		</koken:loop> 
+ 		  			          		<koken:else>      
+ 		  			          		</koken:has_category>   
+ 		  			             </koken:load>   			          				
+ 		  		              </koken:loop>
+ 		  		          </div>
+ 		  	        </div>
+ 		  </div>
+ 	  </div>
+   </koken:load>
+   
+  <!--- Detail Photoview Campaign -->
+  
+  <!--- Detail Photoview Editorial -->
+  
+    <koken:load>
+  	  <div id='detail-editorial' style="display:none;"> 
+  		  <div id="floater">
+  		  			<div id="child">
+  		  		          <div id="gallery-editorial" class="royalSlider rsMinW visibleNearby">	
+  		  					  <koken:loop>
+  		  			          	 <koken:load source="album" filter:id="{{ album.id }}" limit="0">
+  		  			          	 	<koken:has_category title="Editorial">  			       
+  	 		  			          	    <koken:loop>
+  	 		 							  <koken:img preset="large" class="rsImg" />
+  	 		  			          		</koken:loop> 
+  		  			          		<koken:else>      
+  		  			          		</koken:has_category>   
+  		  			             </koken:load>   			          				
+  		  		              </koken:loop>
+  		  		          </div>
+  		  	        </div>
+  		  </div>
+  	  </div>
+    </koken:load>
+    
+   <!--- Detail Photoview Editorial -->
+   
+   <!--- Detail Photoview Film -->
+   
+     <koken:load>
+   	  <div id='detail-film' style="display:none;"> 
+   		  <div id="floater">
+   		  			<div id="child">
+   		  		          <div id="gallery-film" class="royalSlider rsMinW visibleNearby">	
+   		  					  <koken:loop>
+   		  			          	 <koken:load source="album" filter:id="{{ album.id }}" limit="0">
+   		  			          	 	<koken:has_category title="Film">  			       
+   	 		  			          	    <koken:loop limit="1">   
+   	 		  			          	    	 <koken:img preset="xlarge" class="rsImg" data-rsvideo="{{ content.caption }}" />  	 		  			          	    	 
+   	 		  			          	    </koken:loop>
+   	 		  			          		
+   		  			          		<koken:else>      
+   		  			          		</koken:has_category>   
+   		  			             </koken:load>   			          				
+   		  		              </koken:loop>
+   		  		          </div>
+   		  	        </div>
+   		  </div>
+   	  </div>
+     </koken:load>
+     
+    <!--- Detail Photoview Film -->
+
+
+
+<!--- Bottom Nav -->
+ 
+<section class="fg-fix fg9 push3 bottomnav">
+	<nav id='naviMenu'>
+	  <ul>
+	    <li class="active" data-title="{{ site.title }} – {{ album.title }}"> <a href='#!/overview'>Overview</a> </li>
+	    <li data-title="{{ site.title }} – {{ album.title }} – Editorial"> <a class="editorial" href='#!/editorial'>Editorial</a> </li> 
+	    <li data-title="{{ site.title }} – {{ album.title }} – Campaigns"> <a class="campaigns" href='#!/campaigns'>Campaigns</a> </li>
+	    <li data-title="{{ site.title }} – {{ album.title }} – Film"> <a  class="film" href='#!/film'>Film</a> </li>   
+	    <li data-title="{{ site.title }} – {{ album.title }} – About"> <a href='#!/about'>About</a> </li>   
+	  </ul>
+	</nav>
+</section>
+
+<!--- Bottom Nav -->
+
+
+</div> <!-- close #content -->
+
+<koken:include file="inc/footer.html" />

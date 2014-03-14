@@ -1,0 +1,15 @@
+<section class="fg-fix fg9 push3 bottomnav">
+<ul>
+	<li><koken:link to="set" filter:id="2">Overview</koken:link></li>
+	<koken:tags>
+	  <koken:loop separator=" ">
+	   <li> <koken:link>
+	      {{ tag.title }}
+	    </koken:link></li>
+	  </koken:loop>
+	</koken:tags>
+	<koken:load>
+	<li><a href="{{ page.url }}">About</a></li>
+	</koken:load>
+</ul>
+</section>

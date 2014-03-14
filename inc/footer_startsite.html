@@ -1,0 +1,40 @@
+	
+
+	</div> <!-- close #container -->
+	
+	​<script>	
+
+	        
+	        
+	        $('.teaser').each(function() {
+	           var teaserclass = $(this).children().attr('class');
+	           teaserclean = teaserclass.replace(/\s+/g, '-').replace('/[^a-zA-Z-]/g', '').toLowerCase();
+	            console.log(teaserclean);	          
+	            $(this).children().attr('class', teaserclean);	
+	            $(this).children().css('display', 'none');           
+	        });
+	        
+	        $('li a').hover(function(){  // mouseover 
+		          var title = ('.'+$(this).attr('title'));
+		          clean = title.replace(/\s+/g, '-').replace('/[^a-zA-Z-]/g', '').toLowerCase();
+		          teasercover = '.teaser ' + clean;
+		          console.log(teasercover); 
+		          $(teasercover).fadeIn(100);
+	        }, function(){  // mouseout 
+	         	  $(teasercover).fadeOut(100);	         
+	        });
+	        
+	    	  
+	    	  // menu fade in
+	    	  setTimeout(function() {
+	    	        $('.menu').fadeIn();
+	    	  	}, 800);
+	    	  
+	    	  	
+
+	  
+	</script>
+
+</body>
+
+</html>

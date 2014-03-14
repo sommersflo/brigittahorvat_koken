@@ -1,0 +1,83 @@
+<koken:include file="inc/header.html" />
+
+
+	<!-- Load this template's source data (album) and limit for pagination -->
+	<koken:load>
+
+		<!-- Add Facebook Open Graph and Twitter Cards metadata for nicer sharing -->
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:title" content="{{ album.title strip_html="true" }}" />
+			<meta property="og:description" content="{{ album.summary | album.description strip_html="true" }}" />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content="{{ album.url }}" />
+			<koken:covers><koken:shift>
+			<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+			<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+			<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+			</koken:shift></koken:covers>
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="gallery" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+				<koken:covers minimum="4" limit="4">
+					<koken:loop>
+						<meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
+					</koken:loop>
+				</koken:covers>
+			</koken:not>
+		</koken:head>
+
+		
+
+		<!-- Loop over all the items the album contains. Dislay photo, title and caption and link each to content.lens -->
+		<div id="floater">
+		
+			<div id="child">
+		          <div id="gallery-1" class="royalSlider rsMinW visibleNearby">
+		
+		<koken:loop>
+
+			
+			
+			          			<koken:content_image>
+			          				
+			          					<div class="sliderimg">
+			          					  <koken:img />
+			          					       
+			          					</div>
+			          				
+			          			</koken:content_image>
+				
+
+		</koken:loop>
+		
+		</div>
+	</div>
+</div>
+		
+
+		
+
+	</koken:load>
+
+
+
+<section class="fg-fix fg9 push3 bottomnav">
+<ul>
+	<li><koken:link to="set" filter:id="20">Overview</koken:link></li>
+	<koken:tags>
+	  <koken:loop separator=" ">
+	   <li> <koken:link>
+	      {{ tag.title }}
+	    </koken:link></li>
+	  </koken:loop>
+	</koken:tags>
+	<koken:albums>
+	<li><koken:link>About</koken:link></li>
+	</koken:albums>
+</ul>
+</section>
+
+
+<koken:include file="inc/footer.html" />

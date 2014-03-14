@@ -1,0 +1,21 @@
+<koken:load>
+<koken:loop>	
+
+<div class="series">	
+<h1>{{ album.title }}</h1>
+<koken:link>
+	<koken:load source="album" filter:id="{{ album.id }}" limit="0">	
+		<koken:loop>
+			<!--<a href="{{ album.url }}#{{ content.id }}">-->
+			
+			<koken:img preset="medium" lazy="true" />
+			
+			<!--</a>-->
+		</koken:loop>	
+
+</koken:load>
+</koken:link>
+</div>
+<div class="clearing"></div>		
+</koken:loop>
+</koken:load>koken:load>

@@ -1,0 +1,98 @@
+<koken:include file="inc/header.html" />
+
+<div id="content">
+
+	<!-- Load this template's source data (category). Limit to 20 days. -->
+	<koken:load limit="20">
+
+		<!-- Add Facebook Open Graph tags for nicer sharing -->
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:title" content="{{ labels.category.plural }} / {{ category.title }}" />
+			<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		</koken:head>
+
+	
+<!--- Overview -->	
+<div id="our-projects">		
+<koken:loop>	
+	<koken:event>
+		<koken:event_album>
+			
+				<div id="series">	
+					<h1><koken:parent>{{ album.title }}</koken:parent> — {{ album.title }}</h1>
+					<koken:load source="album" filter:id="{{ album.id }}" limit="0">	
+						<koken:loop>
+							<a href="">
+								<koken:img preset="medium" lazy="true" />
+							</a>
+						</koken:loop>	
+					</koken:load>
+				</div>
+			
+			<div class="clearing"></div>		
+		</koken:event_album>
+	</koken:event>
+</koken:loop>
+</div>
+
+<!--- Overview -->
+			
+<!--- Detail View -->
+
+  <koken:load>
+  
+	  <div id='detail-our-projects' style="display:none;"> 
+		  <div id="floater">
+		  			<div id="child">
+		  		          <div id="gallery-our-projects" class="royalSlider rsMinW visibleNearby">	
+		  					<koken:event>
+		  						<koken:event_album>
+		  			          	 <koken:load source="album" filter:id="{{ album.id }}" limit="0"> 			       
+		  			          	    <koken:loop>
+		 							  <koken:img preset="large" class="rsImg" />
+		  			          		</koken:loop>  
+		  			             </koken:load>   			          				
+		  		            </koken:event_album>
+		  		            </koken:event>
+		  		          </div>
+		  	        </div>
+		  </div>
+	  </div>
+	  
+  </koken:load>
+  
+ <!--- Detail View -->	
+ 
+ <!--- Bottom Nav -->
+  
+ <section class="fg-fix fg9 push3 bottomnav">
+ 	<nav id='naviMenu'>
+ 	  <ul>
+ 	    <li class="active"> <a href='#!/overview'>Overview</a> </li>
+ 	    <li> <a href='#!/editorial'>Editorial</a> </li> 
+ 	    <li> <a href='#!/campaigns'>Campaigns</a> </li>
+ 	    <li> <a href='#!/film'>Film</a> </li>     
+ 	  </ul>
+ 	</nav>
+ </section>
+ 
+ <!--- Bottom Nav -->	
+
+		
+
+	<!-- Fallback content if no data was loaded by koken:load -->
+	<koken:else>
+
+		<!-- Use koken:note to display this message in the Site editor only -->
+		<koken:note>
+			No category events found
+		</koken:note>
+
+	</koken:load>
+
+</div> <!-- close #content -->
+
+<koken:include file="inc/footer.html" />

@@ -1,0 +1,34 @@
+{
+	"name": "Brigitta Horvat",
+	"version": "1.5",
+	"description": "Bare bones theme for theme developers learning the ropes. Nothing fancy, just data.",
+	"demo": "http://koken.me",
+	"author": {
+		"name": "WAF",
+		"link": "https://store.koken.me/authors/koken"
+	},
+	"koken_version_required": "0.10.0-beta.1",
+
+	"navigation_groups": {
+		"col1": {
+			"label": "Column 1",
+			"defaults": [
+				
+			]
+		},		
+		"col2": {
+			"label": "Column 2",
+			"defaults": [
+				
+			]
+		},
+		"col3": {
+			"label": "Column 3",
+			"defaults": [
+				
+			]
+		}
+	}
+	
+
+}
