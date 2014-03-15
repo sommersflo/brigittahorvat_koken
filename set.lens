@@ -54,13 +54,13 @@
     		<koken:has_category title="Film">  			       		  			            
 		  		<a href="">
 		  			<koken:loop> 
-		  			     <koken:img preset="medium" />
+		  			     <koken:img preset="medium" fade="200" />
 		  			</koken:loop> 
 		  		</a>
            <koken:else> 
            		<koken:loop>
 		  			<a href="">
-		  			    <koken:img preset="medium" />
+		  			    <koken:img preset="medium" fade="200" />
 		  			</a>
 		  		</koken:loop> 
 		  	</koken:has_category>			  			          	 
@@ -86,7 +86,7 @@
       						<koken:load source="album" filter:id="{{ album.id }}" limit="0">	   	
       							<koken:loop>		
       								<a href="">
-      									<koken:img preset="medium" />
+      									<koken:img preset="medium" fade="200" />
       								</a>			
       							</koken:loop>
       							<div id='campaignscategory' class='campaignscontent'></div>	   		
@@ -112,7 +112,7 @@
       						<koken:load source="album" filter:id="{{ album.id }}" limit="0">	   	
       							<koken:loop>		
       								<a href="">
-      									<koken:img preset="medium" />
+      									<koken:img preset="medium" fade="200" />
       								</a>			
       							</koken:loop>
       							<div id='editorialcategory' class='editorialcontent'></div>	   		
@@ -138,7 +138,7 @@
       						<koken:load source="album" filter:id="{{ album.id }}" limit="0">	   	
       							<a href="">
 		  			          	<koken:loop> 
-		  			          			<koken:img preset="medium" />
+		  			          			<koken:img preset="medium" fade="200" />
 		  			          	</koken:loop> 
 		  			          	</a>
       							<div id='filmcategory' class='filmcontent'></div>	   		
@@ -172,38 +172,48 @@
  
 <!--- Detail Overview -->
 
-  <koken:load>
-	  <div id='detail' style="display:none;"> 
-		  <div id="floater">
-		  			<div id="child">
-		  		          <div id="gallery-overview" class="royalSlider rsMinW visibleNearby">	
-		  					  <koken:loop>
+  
+
+
+
+<koken:load>
+
+	<div id='detail' style="display:block; visibility: hidden;"> 
+	<div id='prev-slide'></div> 
+		<div id="floater">		
+				<div class = 'responsiveHeight'>			
+					<div class = 'inner'>
+						<div class ='iosSlider'>
+							<div class ='slider'>
+				
+								<koken:loop>
 		  			          	 <koken:load source="album" filter:id="{{ album.id }}" limit="0"> 
 		  			          	 <koken:has_category title="Film">  			       
 		  			          	
 		  			          <koken:loop limit="1">   
-		  			          	 <koken:img preset="xlarge" class="rsImg" data-rsvideo="{{ content.caption }}" />
+		  			          	 <koken:img preset="xlarge" data-rsvideo="{{ content.caption }}" />
 		  			          </koken:loop> 
 	  			          	 
 		  			          	 <koken:else>  
 		  			          	 <koken:loop>
-		  			          	 <koken:img preset="xlarge" class="rsImg" />
-		  			          	 </koken:loop>     
+		  			          	 <koken:img preset="xlarge" />
+		  			          	 </koken:loop>  
+		  			          	 
 		  			          	 </koken:has_category>			       
 		  			          	     
 		  			             </koken:load>   			          				
 		  		              </koken:loop>
-		  		          </div>
-		  	        </div>
-		  </div>
-	  </div>
-  </koken:load>
-  
-  
-    
+				
+							</div>
+						</div>
+						</div>
+					
+				</div>		  		          
+			</div>
+		</div>
+	
+</koken:load>
 
-
-  
   
  <!--- Detail Overview -->
  

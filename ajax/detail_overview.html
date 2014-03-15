@@ -1,0 +1,28 @@
+ 
+  <koken:load>
+	  <div id='detail' style="display:none;"> 
+		  <div id="floater">
+		  			<div id="child">
+		  		          <div id="gallery-overview" class="royalSlider rsMinW visibleNearby">	
+		  					  <koken:loop>
+		  			          	 <koken:load source="album" filter:id="{{ album.id }}" limit="0"> 
+		  			          	 <koken:has_category title="Film">  			       
+		  			          	
+		  			          <koken:loop limit="1">   
+		  			          	 <koken:img preset="xlarge" class="rsImg" data-rsvideo="{{ content.caption }}" />
+		  			          </koken:loop> 
+	  			          	 
+		  			          	 <koken:else>  
+		  			          	 <koken:loop>
+		  			          	 <koken:img preset="xlarge" class="rsImg" />
+		  			          	 </koken:loop>  
+		  			          	 
+		  			          	 </koken:has_category>			       
+		  			          	     
+		  			             </koken:load>   			          				
+		  		              </koken:loop>
+		  		          </div>
+		  	        </div>
+		  </div>
+	  </div>
+  </koken:load>

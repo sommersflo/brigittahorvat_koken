@@ -25,9 +25,7 @@
 	        });
 	        
 	        
-	        
-	        $( '#slider1' ).lemmonSlider();
-
+	       
 	        
 	        
 	        
@@ -44,7 +42,7 @@
 	         	  	 	setTimeout(function() {
 	         	  	 	      $('.menu').css('margin-top', '-200px');
 	         	  	 	      $('.rightnav').css('top', '-80px');  
-	         	  	 		}, 300); 
+	         	  	 		}, 150); 
 	         	  	 }     
 	        });
 	        
@@ -88,68 +86,64 @@
 	    	});
 	    	
 
-	    	
+	    		    		
 	    	
 	    	
 	    	$('#overview #series img').click(function(){
+	    	
+	    				/*$.get('/koken/storage/themes/brigittahorvat/ajax/detail_overview.html', function(data) {
+		    					$('#ajax-overview').html(data); 
+		    					console.log('ajax');  
+            			})*/
+
+
 	    		    	  
 	    		    	  $('#overview').hide();
-	    		    	  $('#naviMenu li').removeClass('active');	 
+	    		    	  $('#naviMenu li').removeClass('active');	
+	    		    	  $('.iosSlider .slider').css('margin-top', 0); 
 	    		    	  //var index = $( "#series img" ).index( this );  
 	    		    	  //location.hash = '#image-'+(index+1);
 	    		    	  
-	    		    	  $(window).trigger("resize");
+	    		    
+	    		    	  
+	    		    	  function reload() {
+	    		    	  	 $(window).trigger("resize");
+	    		    	  	
+	    		    	  }
+	    		    	  
+	    		    	 function slideChange(args) {
+		    		    	 $('#detail img').removeClass('current');
+		    		    	 $(args.currentSlideObject).addClass('current');
+		    		    	 }
+	    		    	  
+    		    	
 	    		    	  setTimeout(function() {
-	    		    	  	    $(window).trigger("resize");
-	    		    	        $('#detail').fadeIn();
-	    		    	  	}, 200);
-	    		    	  
-	    		    	  $('#gallery-overview').royalSlider({
-	    		    	      addActiveClass: true,
-	    		    	      arrowsNav: false,
-	    		    	      controlNavigation: 'none',
-	    		    	      autoScaleSlider: true, 
-	    		    	      autoScaleSliderWidth: 1280,     
-	    		    	      autoScaleSliderHeight: 500,
-	    		    	      loop: true,
-	    		    	      fadeinLoadedSlide: true,
-	    		    	      globalCaption: false,
-	    		    	      keyboardNavEnabled: true,
-	    		    	      globalCaptionInside: false,
-	    		    	      imageScaleMode: 'fit',
-	    		    	      imageAlignCenter: true,
-	    		    	      usePreloader: true,
-	    		    	      transitionType: 'move',
-	    		    	     
-	    		    	  
-	    		    	      
-	    		    	      deeplinking: {
-	    		    	            enabled: true,
-	    		    	            change: true,
-	    		    	            prefix: 'photo'
-	    		    	          },
-	    		    	      
-	    		    	      video: {
-	    		    	            autoHideArrows:true,
-	    		    	            autoHideControlNav:false,
-	    		    	            autoHideBlocks: true
-	    		    	          },
-	    		    	  
-	    		    	      visibleNearby: {
-	    		    	        enabled: true,
-	    		    	        centerArea: 0.7,
-	    		    	        center: true,
-	    		    	        breakpoint: 1200,
-	    		    	        breakpointCenterArea: 0.7,
-	    		    	        navigateByCenterClick: true
-	    		    	      }
-	    		    	    }).data('royalSlider');
-	    		    	    
-	    		    	   
-	    		    	      	     
-	    	    	    });
+	    		    	  	 //   $(window).trigger("resize");
+	    		    	  	 // document.location.reload(); 
+	    		    	       $('#detail').css('visibility', 'visible');
+	    		    	             
+	    		    	  	}, 1000);
+	    		    	 
+	    		    	  $('.iosSlider').iosSlider({ 
+		    		    	    	desktopClickDrag: true,
+		    		    	    	keyboardControls: true,
+		    		    	    	infiniteSlider: true,
+		    		    	    	snapToChildren: true,
+		    		    	    	snapSlideCenter: true,
+		    		    	    	navSlideSelector: $("#overview #series a"),
+		    		    	    	onSliderLoaded: reload,
+		    		    	    	navNextSelector: $("#detail img"),
+		    		    	    	navPrevSelector: $("#prev-slide"),
+		    		    	    	onSlideChange: slideChange,
+		    		    	    	sliderCSS: {width: '400'},
+		    		    	    	stageCSS: {width: '400'}
+		    		    	    	
+		    		    	    	});
+		    		    	    });
 	    	    	    
-	    	 $('#campaigns #series img').click(function(){
+	    	    	    
+	    	    	    
+	    	/* $('#campaigns #series img').click(function(){
 	    	 	    	  
 	    	 	    	  $('#campaigns').hide();
 	    	 	    	  $('#naviMenu li').removeClass('active');	 
@@ -175,7 +169,7 @@
 	    	 	    	      globalCaptionInside: false,
 	    	 	    	      imageScaleMode: 'fit',
 	    	 	    	      imageAlignCenter: true,
-	    	 	    	      usePreloader: false,
+	    	 	    	      usePreloader: true,
 	    	 	    	     
 	    	 	    	  
 	    	 	    	      
@@ -230,7 +224,7 @@
 	    	  	    	      globalCaptionInside: false,
 	    	  	    	      imageScaleMode: 'fit',
 	    	  	    	      imageAlignCenter: true,
-	    	  	    	      usePreloader: false,
+	    	  	    	      usePreloader: true,
 	    	  	    	     
 	    	  	    	  
 	    	  	    	      
@@ -285,7 +279,7 @@
 	    	 	    	      globalCaptionInside: false,
 	    	 	    	      imageScaleMode: 'fit',
 	    	 	    	      imageAlignCenter: true,
-	    	 	    	      usePreloader: false,
+	    	 	    	      usePreloader: true,
 	    	 	    	     
 	    	 	    	  
 	    	 	    	      
@@ -340,7 +334,7 @@
 	    	 	    	      globalCaptionInside: false,
 	    	 	    	      imageScaleMode: 'fit',
 	    	 	    	      imageAlignCenter: true,
-	    	 	    	      usePreloader: false,
+	    	 	    	      usePreloader: true,
 	    	 	    	     
 	    	 	    	  
 	    	 	    	      
@@ -366,14 +360,15 @@
 	    	 	    	      }
 	    	 	    	    }).data('royalSlider');
 	    	 	    	      	     
-	    	     	    });     	      	       	      	    
+	    	     	    });    */ 	      	       	      	    
 	    	    	    
 	    	    	    
 	    	 $('#naviMenu li ').click(function(){ 
-	    	 	$('#detail, #detail-campaign, #detail-editorial, #detail-film, #detail-our-projects').hide();
+	    	 	$('#detail, #detail-campaign, #detail-editorial, #detail-film, #detail-our-projects').css('visibility', 'hidden');
+	    	 	 
+	    	 	$('.iosslider').iosSlider('destroy');
 	    	 	setTimeout(function() {
-	    	 		    $(window).trigger("resize");
-	    	 	      
+	    	 		    $(window).trigger("resize");   	 	      
 	    	 		}, 200);	    	 	   
 	    	    	});    
 	    	
