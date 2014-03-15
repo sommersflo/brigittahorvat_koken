@@ -100,7 +100,7 @@
             			$(window).on('k-image-loaded', function() {	
 	            			//$(window).trigger("resize");
 	            			$('.iosSlider').iosSlider('update');
-	            			$('#detail').css('visibility', 'visible');	            			
+	            			            			
 	            		});
 	            		
    		    	  
@@ -118,12 +118,13 @@
 	    		    	  
 	    		    	 function slideChange(args) {
 		    		    	 $('#detail img').removeClass('current');
-		    		    	 $(args.currentSlideObject).addClass('current');	
+		    		    	 $(args.currentSlideObject).addClass('current');
+		    		    	 	
 		    		    	 }
 		    		    	 
 		    		    function slideComplete(args) {
 		    		    	 $(window).trigger("resize");	
-		    		    	//  $('#detail').css('visibility', 'visible');
+		    		    	 $('#detail').css('visibility', 'visible');
 		    		    	 }
 	    		    	  
     		    	
