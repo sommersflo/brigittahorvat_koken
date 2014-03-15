@@ -86,6 +86,7 @@
 	    	});
 	    	
 
+	    	
 	    		    		
 	    	
 	    	
@@ -95,35 +96,44 @@
 		    					$('#ajax-overview').html(data); 
 		    					console.log('ajax');  
             			})*/
-
-
-	    		    	  
+            			
+            			$(window).on('k-image-loaded', function() {	
+	            			//$(window).trigger("resize");
+	            			$('.iosSlider').iosSlider('update');	            			
+	            		});
+	            		
+   		    	  
 	    		    	  $('#overview').hide();
 	    		    	  $('#naviMenu li').removeClass('active');	
 	    		    	  $('.iosSlider .slider').css('margin-top', 0); 
-	    		    	  //var index = $( "#series img" ).index( this );  
-	    		    	  //location.hash = '#image-'+(index+1);
+	
+    		    
 	    		    	  
-	    		    
-	    		    	  
-	    		    	  function reload() {
+	    		    	  function loaded() {
 	    		    	  	 $(window).trigger("resize");
+	    		    	  	 $('#detail').css('visibility', 'visible');
+	    		    	  	
 	    		    	  	
 	    		    	  }
 	    		    	  
 	    		    	 function slideChange(args) {
 		    		    	 $('#detail img').removeClass('current');
-		    		    	 $(args.currentSlideObject).addClass('current');
+		    		    	 $(args.currentSlideObject).addClass('current');	
+		    		    	 }
+		    		    	 
+		    		    function slideComplete(args) {
+		    		    	 $(window).trigger("resize");	
+		    		    	//  $('#detail').css('visibility', 'visible');
 		    		    	 }
 	    		    	  
     		    	
-	    		    	  setTimeout(function() {
-	    		    	  	 //   $(window).trigger("resize");
-	    		    	  	 // document.location.reload(); 
-	    		    	       $('#detail').css('visibility', 'visible');
-	    		    	             
-	    		    	  	}, 1000);
-	    		    	 
+	    		    	  /*setTimeout(function() {
+	    		    	       $('#detail').css('visibility', 'visible');	    		   	             
+	    		    	  	}, 200);*/
+	    		    	  	
+	    		    	  
+	    		    	
+	    		  
 	    		    	  $('.iosSlider').iosSlider({ 
 		    		    	    	desktopClickDrag: true,
 		    		    	    	keyboardControls: true,
@@ -131,15 +141,15 @@
 		    		    	    	snapToChildren: true,
 		    		    	    	snapSlideCenter: true,
 		    		    	    	navSlideSelector: $("#overview #series a"),
-		    		    	    	onSliderLoaded: reload,
+		    		    	    	onSliderLoaded: loaded,
 		    		    	    	navNextSelector: $("#detail img"),
 		    		    	    	navPrevSelector: $("#prev-slide"),
 		    		    	    	onSlideChange: slideChange,
-		    		    	    	sliderCSS: {width: '400'},
-		    		    	    	stageCSS: {width: '400'}
 		    		    	    	
+		    		    	    	onSlideComplete: slideComplete
 		    		    	    	});
-		    		    	    });
+		     });
+		    		    	 
 	    	    	    
 	    	    	    
 	    	    	    

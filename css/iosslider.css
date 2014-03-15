@@ -33,9 +33,10 @@
 .iosSlider .slider img {
   float: left;
   margin-right: 100px;
-     height: 100%;
+  height: 100%;
 
 }
+
 
 
 #prev-slide {
@@ -49,15 +50,18 @@
 	z-index: 9;
 }
 
-#detail img.current {
-	opacity: 1;
+#detail img.k-lazy-loaded.current {
+	opacity: 1 !important;
 }
 
 
-#detail img {
-	opacity: .2;
+#detail img.k-lazy-loaded {
+	opacity: .2 !important;	
 }
 
+img.k-lazy-loading {
+	background: url(css/preloader.gif) center center no-repeat;
+}
 
 
 
