@@ -99,7 +99,8 @@
             			
             			$(window).on('k-image-loaded', function() {	
 	            			//$(window).trigger("resize");
-	            			$('.iosSlider').iosSlider('update');	            			
+	            			$('.iosSlider').iosSlider('update');
+	            			$('#detail').css('visibility', 'visible');	            			
 	            		});
 	            		
    		    	  
@@ -112,8 +113,7 @@
 	    		    	  function loaded() {
 	    		    	  	 $(window).trigger("resize");
 	    		    	  	 $('#detail').css('visibility', 'visible');
-	    		    	  	
-	    		    	  	
+	    		    	 	
 	    		    	  }
 	    		    	  
 	    		    	 function slideChange(args) {
