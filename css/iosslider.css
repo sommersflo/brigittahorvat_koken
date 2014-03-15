@@ -30,7 +30,7 @@
   margin-top: -99999px;
 }
 
-.iosSlider .slider img {
+.iosSlider .slider img, .iosSlider .slider .videoslide {
   float: left;
   margin-right: 100px;
   height: 100%;

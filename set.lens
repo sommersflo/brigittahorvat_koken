@@ -172,10 +172,6 @@
  
 <!--- Detail Overview -->
 
-  
-
-
-
 <koken:load>
 
 	<div id='detail' style="display:block; visibility: hidden;"> 
@@ -191,8 +187,10 @@
 		  			          	 <koken:has_category title="Film">  			       
 		  			          	
 		  			          <koken:loop limit="1">   
-		  			          	 <koken:img preset="large" data-rsvideo="{{ content.caption }}" lazy="true" fade="true" />
+		  			          	 <koken:img preset="large" lazy="true" fade="true" />
 		  			          </koken:loop> 
+		  			          
+		  			          
 	  			          	 
 		  			          	 <koken:else>  
 		  			          	 <koken:loop>
@@ -213,9 +211,9 @@
 		</div>
 	
 </koken:load>
-
   
  <!--- Detail Overview -->
+ 
  
  <!--- Detail Photoview Campaign -->
  
